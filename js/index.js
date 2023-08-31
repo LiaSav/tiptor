@@ -1,6 +1,35 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    // burger menu
+        const body = document.querySelector('.body'),
+            menu = body.querySelector('.header__nav-wrapper'),
+            menuItem = menu.querySelectorAll('.header__nav-item'),
+            burger = body.querySelector('.header__nav-burger');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('header__nav-burger_active');
+            menu.classList.toggle('header__nav-wrapper_active');
+            body.classList.toggle('body_burger-open');
+        });
+
+        menuItem.forEach((item) => {
+            item.addEventListener('click', () => {
+                burger.classList.remove('header__nav-burger_active');
+                menu.classList.remove('header__nav-wrapper_active');
+                body.classList.remove('body_burger-open');
+            });
+        });
+
+        body.addEventListener('click', (e) => {
+            if (e.target.classList.contains('overlay')) {
+                burger.classList.remove('header__nav-burger_active');
+                menu.classList.remove('header__nav-wrapper_active');
+                body.classList.remove('body_burger-open');
+            }
+        });
+
     // lang
     const langCurrent = document.querySelector('.header__lang-current'),
         langMenu = document.querySelector('.header__lang-menu'),
