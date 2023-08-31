@@ -1329,13 +1329,25 @@ svg {
         gap: 20px;
     }
 
-    .matches,
-    .aside {
-        min-height: max-content;
+    .matches {
+        overflow: visible;
+    }
+
+    .matches__inner,
+    .aside__inner {
+        max-height: max-content;
     }
 
     .schedule {
         order: -1;
+
+        &__inner {
+            max-height: max-content;
+        }
+    }
+
+    .aside {
+        min-height: max-content;
     }
 
     .wrapper-bottom {
